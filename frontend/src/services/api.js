@@ -1,9 +1,7 @@
 import axios from 'axios';
 
-// Use production URL in production, local in development
-const API_URL = process.env.NODE_ENV === 'production' 
-  ? process.env.REACT_APP_API_URL 
-  : 'http://localhost:5000/api';
+// AFTER deploying backend to Render, use this URL
+const API_URL = 'https://mern-todo-api.onrender.com/api';  // Your Render URL
 
 const api = axios.create({
   baseURL: API_URL,
