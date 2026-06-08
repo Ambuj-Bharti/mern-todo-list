@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-// AFTER deploying backend to Render, use this URL
-const API_URL = 'https://mern-todo-api.onrender.com/api';  // Your Render URL
+// Use your actual Render backend URL
+const API_URL = 'https://mern-todo-list-uqce.onrender.com/api';
 
 const api = axios.create({
   baseURL: API_URL,
