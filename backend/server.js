@@ -14,12 +14,27 @@ connectDB();
 
 const app = express();
 
-// CORS - single configuration
-// Dynamic CORS - allows both local and production
+// CORS configuration - Allow your Vercel frontend
 const allowedOrigins = [
-  'http://localhost:3000',
-  process.env.FRONTEND_URL  // Will add Netlify URL later
+  'http://localhost:3000',  // Local development
+  'https://mern-todo-list-iota.vercel.app',  // Your production frontend
+  'https://mern-todo-list-5gug5p4tq-ambuj-bharti-s-projects.vercel.app'  // Preview deployment
 ];
+
+app.use(cors({
+  origin: function(origin, callback) {
+    // Allow requests with no origin (like mobile apps or curl)
+    if (!origin) return callback(null, true);
+    if (allowedOrigins.indexOf(origin) === -1) {
+      const msg = 'The CORS policy for this site does not allow access from the specified Origin.';
+      return callback(new Error(msg), false);
+    }
+    return callback(null, true);
+  },
+  credentials: true
+}));
+
+
 app.use(express.json());
 
 // Mount routes
