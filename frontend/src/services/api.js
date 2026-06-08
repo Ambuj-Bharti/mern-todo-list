@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 // Use your actual Render backend URL
-const API_URL = 'https://mern-todo-list-uqce.onrender.com/api';
+const API_URL = 'https://mern-todo-list-iota.vercel.app/api';
 
 const api = axios.create({
   baseURL: API_URL,
